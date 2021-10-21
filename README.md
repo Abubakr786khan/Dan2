@@ -77,3 +77,7 @@ You also have the following users for testing
 |------------------------|----------|-------|
 | bernard@blackbooks.net | nipsy    | admin |
 | manny@blackbooks.net   | lavender | user  |
+
+### Logging and Databaase
+
+The system will also create a copy of the logging and database in the ```tmp/``` folder.
