@@ -143,9 +143,10 @@ def create():
     else:
         logging.info("Creating user %s %s with password %s (Admin %s)", name, email, password, admin)
         #Crate the user
+        hashedPw = hashlib.sha512(password.encode()).hexdigest()
         theUser = User(name=name,
                        email=email,
-                       password=password)
+                       password=hashedPw)
 
         if admin:
             theUser.level = "admin"
