@@ -48,19 +48,15 @@ def index():
     return flask.render_template("index.html",
                                  bookList = bookQry)
 
-
 @app.route("/about")
 def about():
     return flask.render_template("about.html")
 
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
     prev = flask.request.args.get("prev")
     if not prev:
-        prev == "index"
+        prev = "index"
         
     if flask.request.method == "POST":
         #Get data
