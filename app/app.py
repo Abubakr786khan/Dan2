@@ -220,10 +220,12 @@ def updateUser(userId):
     if flask.request.method == "POST":
         logging.warning("------------------------")
         current = flask.request.form.get("current")
+        hashedCurrent = hashlib.sha512(current.encode()).hexdigest()
         password = flask.request.form.get("password")
+        hashedPw = hashlib.sha512(password.encode()).hexdigest()
         if current:
-            if current == thisUser.password:
-                thisUser.password = password
+            if hashedCurrent == thisUser.password:
+                thisUser.password = hashedPw
                 db.session.commit()
             else:
                 flask.flash("Current Password is incorrect")
